@@ -27,3 +27,19 @@
   shell: /tmp/sh.rustup.rs -y
   tags:
     - rust
+
+- name: create ~/bin directory
+  file:
+    path: {{ ansible_env.HOME }}/bin
+    state: directory
+    mode: '0755'
+
+- name: Download rtx bin file
+  get_url:
+    url: https://rtx.pub/rtx-latest-linux-x64
+    dest: {{ ansible_env.HOME }}/bin/rtx
+    mode: '0755'
+
+- name: rtx bashrc
+  path: {{ ansible_env.HOME }}/.bashrc
+  line: eval "$(~/bin/rtx activate bash)"
