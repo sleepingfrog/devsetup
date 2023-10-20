@@ -69,3 +69,21 @@
 - name: "use global ghq {{ ghq_version }}"
   command: "rtx use -g ghq@{{ ghq_version }}"
   when: not ghq_version_matches
+
+- name: Get fzf version
+  changed_when: false
+  command: fzf --version
+  register: fzf_version_output
+
+- name: check if the version matces
+  changed_when: false
+  set_fact:
+    ghq_version_matches: "{{ fzf_version in fzf_version_output.stdout }}"
+
+- name: "install fzf {{ fzf_version }}"
+  command: "rtx install fzf@{{ fzf_version }}"
+  when: not fzf_version_matches
+
+- name: "use global fzf {{ fzf_version }}"
+  command: "rtx use -g fzf@{{ fzf_version }}"
+  when: not fzf_version_matches
