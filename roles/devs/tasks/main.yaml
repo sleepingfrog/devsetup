@@ -5,6 +5,7 @@
       - curl
       - wget
     update_cache: yes
+    become: true
 
 - name: Check cargo is installed
   shell: command -v cargo
