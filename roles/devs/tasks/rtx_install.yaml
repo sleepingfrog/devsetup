@@ -1,0 +1,20 @@
+---
+- block:
+  - name: "check item({{ item.name }}) version"
+    command: "{{ item.v_command }}"
+    register: item_version_output
+    failed_when: false
+    changed_when: false
+
+  - name: "check item version({{ item.version }}) matches"
+    set_fact:
+      item_version_matches: "{{ item_version_output.rc == 0 and item.version in item_version_ouput.stdout }}"
+    changed_when: false
+
+  - name: "install item({{ item.name }}@{{ item.version }})"
+    command: "rtx install {{ item.name }}@{{ item.version }} -y"
+    when: not item_version_matches
+
+  - name: "use item({{ item.name }}@{{ item.version }})"
+    command: "rtx use -g {{ item.name }}@{{ item.version }}"
+    when: not item_version_matches
