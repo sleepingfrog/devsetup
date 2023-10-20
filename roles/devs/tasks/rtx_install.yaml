@@ -18,3 +18,7 @@
   - name: "use item({{ item.name }}@{{ item.version }})"
     command: "rtx use -g {{ item.name }}@{{ item.version }}"
     when: not item_version_matches
+
+  - name: "item({{ item.name }}) additional command"
+    shell: "{{ item.additional_shell }}"
+    when: "{{ not item_version_matches and item.additional_command is defined }}"
