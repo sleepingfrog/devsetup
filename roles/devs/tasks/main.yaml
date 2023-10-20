@@ -11,6 +11,7 @@
   shell: command -v cargo
   register: cargo_exists
   ignore_errors: yes
+  changed_when: false
 
 - name: Download rustup installer
   when: cargo_exists is failed
