@@ -8,7 +8,7 @@
 
   - name: "check item version({{ item.version }}) matches"
     set_fact:
-      item_version_matches: "{{ item_version_output.rc == 0 and item.version in item_version_ouput.stdout }}"
+      item_version_matches: "{{ item_version_output.rc == 0 and item.version in item_version_output.stdout }}"
     changed_when: false
 
   - name: "install item({{ item.name }}@{{ item.version }})"
