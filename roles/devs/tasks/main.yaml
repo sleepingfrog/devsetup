@@ -60,7 +60,7 @@
 - name: check if the version matces
   changed_when: false
   set_fact:
-    ghq_version_matches: "{{ ghq_version in ghq_version_output }}"
+    ghq_version_matches: "{{ ghq_version in ghq_version_output.stdout }}"
 
 - name: "install ghq {{ ghq_version }}"
   command: "rtx install ghq@{{ ghq_version }}"
