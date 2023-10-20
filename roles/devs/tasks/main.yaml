@@ -1,3 +1,11 @@
+- name: git, curl, wget
+  apt:
+    name:
+      - git
+      - curl
+      - wget
+    update_cache: yes
+
 - name: Check cargo is installed
   shell: command -v cargo
   register: cargo_exists
@@ -18,5 +26,3 @@
   shell: /tmp/sh.rustup.rs -y
   tags:
     - rust
-
-
