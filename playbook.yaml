@@ -1,0 +1,7 @@
+---
+
+- name: dev setup
+  hosts: localhost
+  tasks:
+    - import_role:
+        name: devs
