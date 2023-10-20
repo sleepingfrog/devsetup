@@ -66,6 +66,6 @@
   command: "rtx install ghq@{{ ghq_version }}"
   when: not ghq_version_matches
 
-- name: use global ghq 1.4.1
-  command: rtx use -g ghq@1.4.1
+- name: "use global ghq {{ ghq_version }}"
+  command: "rtx use -g ghq@{{ ghq_version }}"
   when: not ghq_version_matches
