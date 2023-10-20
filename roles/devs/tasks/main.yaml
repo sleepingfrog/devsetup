@@ -5,6 +5,7 @@
       - git
       - curl
       - wget
+      - unzip
     update_cache: yes
 
 - name: Check cargo is installed
@@ -50,3 +51,21 @@
   lineinfile:
     path: "{{ ansible_env.HOME }}/.bashrc"
     line: "eval \"$(~/bin/rtx activate bash)\""
+
+- name: Get ghq version
+  changed_when: false
+  command: ghq --version
+  register: ghq_version_output
+
+- name: check if the version matces
+  changed_when: false
+  set_fact:
+    ghq_version_matches: "{{ ghq_version in ghq_version_output }}"
+
+- name: "install ghq {{ ghq_version }}"
+  command: "rtx install ghq@{{ ghq_version }}"
+  when: not ghq_version_matches
+
+- name: use global ghq 1.4.1
+  command: rtx use -g ghq@1.4.1
+  when: not ghq_version_matches
