@@ -7,7 +7,7 @@
   when: cargo_exists is failed
   get_url:
     url: https://sh.rustup.rs
-    dest: /tmp/sh.rusup.rs
+    dest: /tmp/sh.rustup.rs
     mode: '0755'
     force: 'yes'
   tags:
