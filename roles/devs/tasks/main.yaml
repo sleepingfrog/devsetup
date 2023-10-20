@@ -46,5 +46,6 @@
     mode: '0755'
 
 - name: rtx bashrc
-  path: "{{ ansible_env.HOME }}/.bashrc"
-  line: "eval \"$(~/bin/rtx activate bash)\""
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    line: "eval \"$(~/bin/rtx activate bash)\""
