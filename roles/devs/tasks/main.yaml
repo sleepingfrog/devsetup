@@ -2,13 +2,26 @@
   become: true
   apt:
     name:
+      - autoconf
       - build-essential
       - cmake
       - curl
       - git
+      - libdb-dev
+      - libffi-dev
+      - libgdbm-dev
+      - libgdbm6
+      - libgmp-dev
+      - libncurses5-dev
+      - libreadline6-dev
+      - libssl-dev
+      - libyaml-dev
+      - patch
       - tig
       - unzip
+      - uuid-dev
       - wget
+      - zlib1g-dev
     update_cache: yes
 
 - name: Check cargo is installed
