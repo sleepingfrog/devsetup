@@ -6,6 +6,7 @@
       - cmake
       - curl
       - git
+      - tig
       - unzip
       - wget
     update_cache: yes
