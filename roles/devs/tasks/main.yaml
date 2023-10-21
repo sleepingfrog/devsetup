@@ -71,3 +71,9 @@
   lineinfile:
     path: "{{ ansible_env.HOME }}/.bashrc"
     line: "eval \"$(starship init bash)\""
+
+- name: starship config
+  template:
+    src: templates/starship.tpl
+    dest: "{{ ansible_env.HOME }}/.config/starship.toml"
+    mode: '0644'
