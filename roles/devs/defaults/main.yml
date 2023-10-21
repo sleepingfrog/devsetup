@@ -3,3 +3,4 @@ rtx_items:
   - { name: fzf, version: 0.43.0, v_command: "fzf --version", additional_command: "$(rtx where fzf)/install --all" }
 
 neovim_version: '0.9.4'
+node_version: '18.18.2'

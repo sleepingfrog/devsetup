@@ -99,3 +99,17 @@
 - name: use -g neovim
   command: "rtx use -g neovim@{{ neovim_version }}"
   when: check_nvim.rc != 0
+
+- name: check node version
+  shell: command -v node
+  register: check_node
+  changed_when: false
+  failed_when: false
+
+- name: install node
+  command: "rtx install node@{{ node_version }} -y"
+  when: check_node.rc != 0
+
+- name: use -g node
+  command: "rtx use -g node@{{ node_version }}"
+  when: check_node.rc != 0
