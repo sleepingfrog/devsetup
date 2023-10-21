@@ -11,3 +11,4 @@ cargo_items:
   - git-delta
   - starship
   - bat
+  - exa
