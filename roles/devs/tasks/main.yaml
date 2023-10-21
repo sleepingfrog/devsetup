@@ -88,29 +88,29 @@
   when: "'git-delta' not in cargo_installed_packages.stdout"
 
 - name: check neovim version
-  shell: command -v nvim
+  command: nvim --version
   register: check_nvim
   changed_when: false
   failed_when: false
 
-- name: install neovim
+- name: "install neovim {{ neovim_version }}"
   command: "rtx install neovim@{{ neovim_version }} -y"
-  when: check_nvim.rc != 0
+  when: "{{ check_nvim.rc != 0 or neovim_version not in check_nvim.stdout }}"
 
-- name: use -g neovim
+- name: "use -g neovim@{{ neovim_version }}"
   command: "rtx use -g neovim@{{ neovim_version }}"
-  when: check_nvim.rc != 0
+  when: "{{ check_nvim.rc != 0 or neovim_version not in check_nvim.stdout }}"
 
 - name: check node version
-  shell: command -v node
+  command: node --version
   register: check_node
   changed_when: false
   failed_when: false
 
-- name: install node
+- name: "install node {{ node_version }}"
   command: "rtx install node@{{ node_version }} -y"
-  when: check_node.rc != 0
+  when: "{{ check_node.rc != 0 or node_version not in check_node.stdout }}"
 
-- name: use -g node
+- name: " use -g node@{{ node_version  }}"
   command: "rtx use -g node@{{ node_version }}"
-  when: check_node.rc != 0
+  when: "{{ check_node.rc != 0 or node_version not in check_node.stdout }}"
