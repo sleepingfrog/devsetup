@@ -85,3 +85,17 @@
 - name: install git-delta
   command: cargo install git-delta
   when: "'git-delta' not in cargo_installed_packages.stdout"
+
+- name: check neovim version
+  shell: command -v nvim
+  register: check_nvim
+  changed_when: false
+  failed_when: false
+
+- name: install neovim
+  command: "rtx install neovim@{{ neovim_version }} -y"
+  when: check_nvim.rc != 0
+
+- name: use -g neovim
+  command: "rtx use -g neovim@{{ neovim_version }}"
+  when: check_nvim.rc != 0

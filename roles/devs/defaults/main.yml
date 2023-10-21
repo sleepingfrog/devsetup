@@ -1,3 +1,5 @@
 rtx_items:
   - { name: ghq, version: 1.4.2, v_command: "ghq --version" }
   - { name: fzf, version: 0.43.0, v_command: "fzf --version", additional_command: "$(rtx where fzf)/install --all" }
+
+neovim_version: '0.9.4'
