@@ -6,6 +6,7 @@
       - build-essential
       - cmake
       - curl
+      - fontconfig
       - git
       - libdb-dev
       - libffi-dev
