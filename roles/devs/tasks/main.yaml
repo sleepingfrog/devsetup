@@ -142,3 +142,16 @@
   command: "rtx use -g yarn@{{ yarn_version }}"
   when: "{{ check_yarn.rc != 0 or yarn_version not in check_yarn.stdout }}"
 
+- name: check ruby version
+  command: ruby --version
+  register: check_ruby
+  changed_when: false
+  failed_when: false
+
+- name: "install ruby {{ ruby_version }}"
+  command: "rtx install ruby@{{ ruby_version }} -y"
+  when: "{{ check_ruby.rc != 0 or ruby_version not in check_ruby.stdout }}"
+
+- name: "use ruby {{ ruby_version }}"
+  command: "rtx use -g ruby@{{ ruby_version }}"
+  when: "{{ check_ruby.rc != 0 or ruby_version not in check_ruby.stdout }}"
