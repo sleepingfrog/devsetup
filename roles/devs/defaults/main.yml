@@ -1,7 +1,7 @@
 rtx_items:
   - { name: ghq, version: 1.4.2, v_command: "ghq --version" }
   - { name: fzf, version: 0.43.0, v_command: "fzf --version", additional_command: "$(rtx where fzf)/install --all" }
-  - { name: neovim, version: '0.9.4', v_commend: "nvim --version" }
-  - { name: node, version: '18.18.2', v_command: "node -version" }
+  - { name: neovim, version: '0.9.4', v_command: "nvim --version" }
+  - { name: node, version: '18.18.2', v_command: "node --version" }
   - { name: yarn, version: '1.22.19', v_command: "yarn --version" }
   - { name: ruby, version: '3.2.2', v_command: "ruby -v" }
