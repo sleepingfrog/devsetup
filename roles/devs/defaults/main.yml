@@ -10,3 +10,4 @@ cargo_items:
   - ripgrep
   - git-delta
   - starship
+  - bat
