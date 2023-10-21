@@ -21,4 +21,4 @@
 
   - name: "item({{ item.name }}) additional command"
     shell: "{{ item.additional_command }}"
-    when: "{{ not item_version_matches and item.additional_command is defined }}"
+    when: "not (item_version_matches) and (item.additional_command) is defined"
