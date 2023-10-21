@@ -81,3 +81,7 @@
 - name: install ripgrep
   command: cargo install ripgrep
   when: "'ripgrep' not in cargo_installed_packages.stdout"
+
+- name: install git-delta
+  command: cargo install git-delta
+  when: "'git-delta' not in cargo_installed_packages.stdout"
