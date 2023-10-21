@@ -4,3 +4,4 @@ rtx_items:
 
 neovim_version: '0.9.4'
 node_version: '18.18.2'
+yarn_version: '1.22.19'

@@ -114,3 +114,18 @@
 - name: " use -g node@{{ node_version  }}"
   command: "rtx use -g node@{{ node_version }}"
   when: "{{ check_node.rc != 0 or node_version not in check_node.stdout }}"
+
+- name: check yarn version
+  command: yarn --version
+  register: yarn_version
+  changed_when: false
+  failed_when: false
+
+- name: "install yarn {{ yarn_version }}"
+  command: "rtx install yarn@{{ yarn_version }} -y"
+  when: "{{ check_yarn.rc != 0 or yarn_version not in check_yarn.stdout }}"
+
+- name: "use yarn {{ yarn_version }}"
+  command: "rtx use -g yarn@{{ yarn_version }}"
+  when: "{{ check_yarn.rc != 0 or yarn_version not in check_yarn.stdout }}"
+
