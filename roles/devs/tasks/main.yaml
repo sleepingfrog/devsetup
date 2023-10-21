@@ -1,11 +1,13 @@
-- name: git, curl, wget
+- name: apt get tools
   become: true
   apt:
     name:
-      - git
+      - build-essential
+      - cmake
       - curl
-      - wget
+      - git
       - unzip
+      - wget
     update_cache: yes
 
 - name: Check cargo is installed
@@ -55,3 +57,17 @@
 - name: install rtx items
   include: rtx_install.yaml
   with_items: "{{ rtx_items }}"
+
+- name: installed packages
+  command: cargo install --list
+  register: cargo_installed_packages
+  changed_when: false
+
+- name: install starship
+  command: cargo install starship
+  when: "'starship' not in cargo_installed_packages.stdout"
+
+- name: starship .bashrc
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    line: "eval \"$(starship init bash)\""
