@@ -72,14 +72,9 @@
   include: rtx_install.yaml
   with_items: "{{ rtx_items }}"
 
-- name: installed packages
-  command: cargo install --list
-  register: cargo_installed_packages
-  changed_when: false
-
-- name: install starship
-  command: cargo install starship
-  when: "'starship' not in cargo_installed_packages.stdout"
+- name: install cargo items
+  include: cargo_install.yaml
+  with_items: "{{ cargo_items }}"
 
 - name: starship .bashrc
   lineinfile:
@@ -91,11 +86,3 @@
     src: templates/starship.tpl
     dest: "{{ ansible_env.HOME }}/.config/starship.toml"
     mode: '0644'
-
-- name: install ripgrep
-  command: cargo install ripgrep
-  when: "'ripgrep' not in cargo_installed_packages.stdout"
-
-- name: install git-delta
-  command: cargo install git-delta
-  when: "'git-delta' not in cargo_installed_packages.stdout"

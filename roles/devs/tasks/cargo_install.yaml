@@ -1,0 +1,10 @@
+---
+- block:
+  - name: check installed items
+    command: cargo install --list
+    register: cargo_installed_packages
+    changed_when: false
+
+  - name: "install {{ item }}"
+    command: "cargo install {{ item }}"
+    when: "(item) not in (cargo_installed_packages.stdout)"

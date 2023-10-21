@@ -5,3 +5,8 @@ rtx_items:
   - { name: node, version: '18.18.2', v_command: "node --version" }
   - { name: yarn, version: '1.22.19', v_command: "yarn --version" }
   - { name: ruby, version: '3.2.2', v_command: "ruby -v" }
+
+cargo_items:
+  - ripgrep
+  - git-delta
+  - starship
