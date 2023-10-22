@@ -99,7 +99,13 @@
     dest: "{{ ansible_env.HOME }}/.gitconfig"
     mode: '0644'
 
-- name: nvim config
+- name: nvim config(1)
+  file:
+    path: "{{ ansible_env.HOME }}/.config/nvim"
+    state: directory
+    mode: '0755'
+
+- name: nvim config(2)
   template:
     src: templates/init.vim
     dest: "{{ ansible_env.HOME }}/.config/nvim/init.vim"
