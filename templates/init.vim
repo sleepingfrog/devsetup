@@ -67,7 +67,7 @@ Plug 'AndrewRadev/linediff.vim'
 Plug 'itchyny/lightline.vim'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-calc', 'coc-explorer', 'coc-git', 'coc-json', 'coc-snippets', 'coc-tsserver', 'coc-yank', 'coc-yaml']
+let g:coc_global_extensions = ['coc-calc', 'coc-explorer', 'coc-git', 'coc-json', 'coc-snippets', 'coc-tsserver', 'coc-yank', 'coc-yaml', 'coc-solargraph']
 
 " Gundo on python3
 let g:gundo_prefer_python3 = 1
