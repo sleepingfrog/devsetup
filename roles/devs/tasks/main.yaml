@@ -92,3 +92,9 @@
     src: templates/tigrc.tpl
     dest: "{{ ansible_env.HOME }}/.tigrc"
     mode: '0644'
+
+- name: gitconfig
+  template:
+    src: templates/gitconfig.tpl
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    mode: '0644'
