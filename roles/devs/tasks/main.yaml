@@ -119,3 +119,7 @@
     src: templates/init.vim
     dest: "{{ ansible_env.HOME }}/.config/nvim/init.vim"
     mode: '0644'
+
+- name: pynvim
+  pip:
+    name: pynvim
