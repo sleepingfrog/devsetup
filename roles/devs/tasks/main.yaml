@@ -86,3 +86,9 @@
     src: templates/starship.tpl
     dest: "{{ ansible_env.HOME }}/.config/starship.toml"
     mode: '0644'
+
+- name: tigrc
+  template:
+    src: templates/tigrc.tpl
+    dest: "{{ ansible_env.HOME }}/.tigrc"
+    mode: '0644'
