@@ -7,7 +7,7 @@ rtx_items:
   - { name: ruby, version: '3.2.2', v_command: "ruby -v" }
   - { name: jq, version: '1.7', v_command: "jq --version" }
   - { name: go, version: '1.21.3', v_command: "go version" }
-  - { name: python, version: '3.12.0', v_command: "python --version" }
+  - { name: python, version: '3.11.6', v_command: "python --version" }
 
 cargo_items:
   - ripgrep
