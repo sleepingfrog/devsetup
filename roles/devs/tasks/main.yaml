@@ -31,7 +31,7 @@
       - wget
       - xz-utils
       - zlib1g-dev
-  update_cache: yes
+    update_cache: yes
 
 - name: Check cargo is installed
   shell: command -v cargo
