@@ -98,3 +98,9 @@
     src: templates/gitconfig.tpl
     dest: "{{ ansible_env.HOME }}/.gitconfig"
     mode: '0644'
+
+- name: nvim config
+  template:
+    src: templates/init.vim
+    dest: "{{ ansible_env.HOME }}/.config/nvim/init.vim"
+    mode: '0644'
