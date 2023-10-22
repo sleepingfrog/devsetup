@@ -6,6 +6,7 @@ rtx_items:
   - { name: yarn, version: '1.22.19', v_command: "yarn --version" }
   - { name: ruby, version: '3.2.2', v_command: "ruby -v" }
   - { name: jq, version: '1.7', v_command: "jq --version" }
+  - { name: go, version: '1.21.3', v_command: "go version" }
 
 cargo_items:
   - ripgrep
