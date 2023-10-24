@@ -116,7 +116,7 @@
 
 - name: nvim config(2)
   template:
-    src: templates/init.vim
+    src: templates/init.vim.tpl
     dest: "{{ ansible_env.HOME }}/.config/nvim/init.vim"
     mode: '0644'
 
