@@ -123,3 +123,14 @@
 - name: nvim config(3)
   pip:
     name: pynvim
+
+- name: my.bash
+  template:
+    src: templates/my.bash.tpl
+    dest: "{{ ansible_env.HOME }}/.my.bash"
+    mode: "0644"
+
+- name: source my.bash
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    line: "[ -f ~/.my.bash ] && source ~/.my.bash"
