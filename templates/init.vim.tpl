@@ -63,6 +63,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'kyoh86/vim-ripgrep'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'itchyny/lightline.vim'
 call plug#end()
@@ -275,3 +276,34 @@ nmap <Leader>cr <Plug>(coc-calc-result-replace)
 
 " coc-yank
 nnoremap <silent><Leader>y :<C-u>CocList -A --normal yank<cr>
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "ruby", "vim", "query", "lua", "javascript", "typescript", "yaml", "json" },
+  highlight = {
+    enable = true
+  },
+  indent = {
+    enable = true
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["ab"] = "@block.outer",
+        ["ib"] = "@block.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+        ["am"] = "@comment.outer",
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ap"] = "@parameter.outer",
+        ["ip"] = "@parameter.inner",
+        ["ar"] = "@regex.outer",
+        ["ir"] = "@regex.inner",
+      }
+    }
+  }
+}
+EOF
