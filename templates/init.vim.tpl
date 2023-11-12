@@ -281,10 +281,10 @@ lua << EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "ruby", "vim", "query", "lua", "javascript", "typescript", "yaml", "json" },
   highlight = {
-    enable = true
+    enable = false
   },
   indent = {
-    enable = true
+    enable = false
   },
   textobjects = {
     select = {
