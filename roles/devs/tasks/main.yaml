@@ -115,7 +115,7 @@
       [include]
         path = "{{ ansible_env.HOME }}/.gitconfig.my"
     state: present
-    marker: "# *** include my config file {mark} MANAGED BY ANSIBLE ***"
+    marker: "# *** include my config file [{mark}] MANAGED BY ANSIBLE ***"
     marker_begin: "start"
     marker_end: "end"
 
