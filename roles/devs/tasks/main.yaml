@@ -115,6 +115,9 @@
       [include]
         path = "{{ ansible_env.HOME }}/.gitconfig.my"
     state: present
+    marker: "# *** include my config file {mark} MANAGED BY ANSIBLE ***"
+    marker_start: "start"
+    marker_end: "end"
 
 - name: nvim config(1)
   file:
