@@ -105,8 +105,16 @@
 - name: gitconfig
   template:
     src: templates/gitconfig.tpl
-    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    dest: "{{ ansible_env.HOME }}/.gitconfig.my"
     mode: '0644'
+
+- name: include git config
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.gitconfig"
+    block: |
+      [include]
+        path = "{{ ansible_env.HOME }}/.gitconfig.my"
+    state: present
 
 - name: nvim config(1)
   file:
