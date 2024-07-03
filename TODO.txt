@@ -9,3 +9,7 @@ TODO:
    chmod +x ~/bin/diff-highlight
    ```
  + CocConfig
+
+ + wsl前提なので xdg-settingでホストが起動するようにする？
+ 
+ + rtx => mise
